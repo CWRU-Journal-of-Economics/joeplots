@@ -1,0 +1,5 @@
+library(ggplot2); library(joeplots)
+stopifnot(unname(joe_colors("bright_blue")) == "#2F6DB3")
+p <- ggplot(mtcars, aes(wt, mpg)) + geom_point() + theme_joe()
+f <- tempfile(fileext = ".png"); save_joe(p, f, source = "Test")
+stopifnot(file.exists(f), file.info(f)$size > 0)
