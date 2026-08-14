@@ -1,16 +1,13 @@
 Package: joeplots
 Type: Package
 Title: JoE Chart Theme and Export Helpers
-Version: 0.1.0
-Authors@R: person("CWRU", "Journal of Economics", role = c("aut", "cre"), email = "journalofeconomices@case.edu")
+Version: 0.1.1
+Authors@R: person("CWRU", "Journal of Economics", role = c("aut", "cre"), email = "journalofeconomics@case.edu")
 Description: Provides the CWRU Journal of Economics chart palette, a ggplot2
-    theme, approved color scales, branded source footers, and export presets.
+    theme, approved color scales, source footers, and export presets.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 4.1.0)
-Imports: cowplot, ggplot2, grid, png
+Imports: cowplot, ggplot2
 Suggests: ragg
 NeedsCompilation: no
-Packaged: 2026-08-12 18:53:44 UTC; elvin
-Author: CWRU Journal of Economics [aut, cre]
-Maintainer: CWRU Journal of Economics <maintainer@example.com>

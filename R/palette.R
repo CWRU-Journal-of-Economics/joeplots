@@ -15,12 +15,13 @@ joe_palettes <- list(
   sequential = unname(joe_palette[c("pale_bluegreen", "light_blue", "bright_blue", "steel_blue", "navy")])
 )
 
-joe_colors <- function(...) {
+joe_colors <- function(..., named = FALSE) {
   requested <- unlist(list(...), use.names = FALSE)
   if (!length(requested)) return(joe_palette)
   unknown <- setdiff(requested, names(joe_palette))
   if (length(unknown)) stop("Unknown JoE color: ", paste(unknown, collapse = ", "), call. = FALSE)
-  joe_palette[requested]
+  colors <- joe_palette[requested]
+  if (named) colors else unname(colors)
 }
 
 .joe_values <- function(palette, reverse = FALSE) {
