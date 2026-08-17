@@ -4,9 +4,6 @@
 (JoE). It gives students a shared color palette, a minimal `ggplot2` theme,
 standard export sizes, and consistent source footers.
 
-The goal is simple: a student should be able to focus on the data and the
-message while the package handles most visual formatting decisions.
-
 ## Quick start
 
 Install `remotes` once:
@@ -37,8 +34,8 @@ p <- ggplot(mtcars, aes(wt, mpg)) +
     alpha = 0.8
   ) +
   labs(
-    title = "Heavier cars get worse fuel economy",
-    subtitle = "Fuel economy and vehicle weight for 32 cars",
+    title = "Fuel economy by weight",
+    subtitle = "32 cars in Motor Trend, 1974",
     x = "Weight (1,000 pounds)",
     y = "Miles per gallon"
   ) +
@@ -54,51 +51,30 @@ save_joe(
 )
 ```
 
-## JoE chart standard
+## JoE chart standards
 
-Every JoE chart should follow these rules unless the story requires a clear
-exception:
+### Applied automatically by the package
 
-1. Use a white background.
-2. Use a large, bold, left-aligned title.
-3. Write titles in sentence case: capitalize the first word and proper nouns
+1. White background.
+2. Large, bold, left-aligned title.
+3. Large, readable axis text
+4. Minimal gridlines and no axis ticks
+5. JoE color palette functions
+6. Standardized export dimensions and resolution, depending on use case (web, print, or social)
+
+### Editorial guidelines authors must follow
+
+1. Write titles in sentence case: capitalize the first word and proper nouns
    only.
-4. Make the title state the chart's main takeaway when possible.
-5. Use a subtitle only when it adds necessary context.
-6. Use large, readable axis text and label axes with units when needed.
-7. Remove minor gridlines and axis ticks. Keep only subtle horizontal major
-   gridlines when they help readers compare values.
-8. Use JoE colors only. Do not introduce a new hex color without editorial
+2. The title should describe, but not interpret, the data and relationships shown in the chart.
+3. Use a subtitle only when it adds necessary context.
+4. Use JoE colors only. Do not introduce a new hex color without editorial
    approval.
-9. Prefer one emphasis color and neutral gray for context.
-10. Add a source to every published chart. Add a note only when readers need
+5. Prefer one emphasis color and neutral gray for context.
+6. Add a source to every published chart. Add a note only when readers need
     a definition, caveat, or methodological detail.
-11. Do not place the JoE logo inside exported charts.
-12. Do not use color as the only way to communicate an important distinction;
+7. Do not use color as the only way to communicate an important distinction;
     use labels, ordering, or annotations too.
-
-## Titles and labels
-
-Good titles are short, specific, and written in sentence case:
-
-- `Inflation slowed in the second half of 2025`
-- `Cleveland rents remain below the national average`
-- `Young workers changed jobs most often`
-
-Avoid title case such as `Inflation Slowed In The Second Half Of 2025`.
-
-For a narrow or social chart, insert `\n` where the title should wrap:
-
-```r
-labs(title = "Baseball has become more expensive,\nbut attendance holds steady")
-```
-
-Avoid shrinking the title until it becomes hard to read. Shorten or wrap it
-instead.
-
-Axis labels should identify the measure and unit. Examples include `Percent`,
-`Price index (2020 = 100)`, and `Thousands of people`. Set an axis title to
-`NULL` when the categories or surrounding text already make it obvious.
 
 ## Theme
 
@@ -159,9 +135,6 @@ joe_colors()
 joe_colors("bright_blue")
 joe_colors("navy", "medium_orange")
 ```
-
-When specific colors are requested, `joe_colors()` returns plain hex values
-that can be used directly in geoms and manual scales.
 
 ### Approved combinations
 
@@ -337,10 +310,6 @@ The source and optional note appear in a small text footer. No logo is added.
 | `print` | 7.5 × 4.6875 | 400 | 3000 × 1875 | Print-quality raster image |
 | `social` | 6 × 7.5 | 300 | 1800 × 2250 | Vertical social post |
 
-These presets intentionally create files larger than their final display size.
-Downscaling a sharp image generally looks better than enlarging a small one.
-PNG files are rendered with `ragg` for clear text, lines, and antialiasing.
-
 Check a preset from R:
 
 ```r
@@ -407,17 +376,13 @@ treat this README as the chart specification and follow these rules:
    main takeaway, and source.
 3. Choose a chart type appropriate to the analytical question.
 4. Use `joe_colors()` or a packaged JoE scale; do not invent colors.
-5. Use a white background and add `theme_joe()` near the end of the plot code.
+5. Use `theme_joe()`.
 6. Use a bold, left-aligned, sentence-case title that communicates the result.
 7. Label units clearly and remove redundant axis titles or legends.
 8. Use subtle horizontal gridlines only when helpful.
 9. Prefer highlighting one important series while muting comparison data.
 10. Include a source in the final `save_joe()` call.
 11. Use `save_joe()` with the correct format instead of plain `ggsave()`.
-12. Do not add a logo.
-13. For narrow outputs, shorten or explicitly wrap long titles with `\n`.
-14. Return code that can be pasted and run, followed by a short explanation of
-    any data assumptions.
 
 A student can give an AI this repository or README and use a prompt such as:
 
