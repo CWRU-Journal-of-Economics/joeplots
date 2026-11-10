@@ -66,14 +66,13 @@ save_joe(
 
 1. Write titles in sentence case: capitalize the first word and proper nouns
    only.
-2. The title should describe, but not interpret, the data and relationships shown in the chart.
-3. Use a subtitle only when it adds necessary context.
-4. Use JoE colors only. Do not introduce a new hex color without editorial
+2. Use a subtitle only when it adds necessary context.
+3. Use JoE colors only. Do not introduce a new hex color without editorial
    approval.
-5. Prefer one emphasis color and neutral gray for context.
-6. Add a source to every published chart. Add a note only when readers need
+4. Prefer one emphasis color and neutral gray for context.
+5. Add a source to every published chart. Add a note only when readers need
     a definition, caveat, or methodological detail.
-7. Do not use color as the only way to communicate an important distinction;
+6. Do not use color as the only way to communicate an important distinction;
     use labels, ordering, or annotations too.
 
 ## Theme
